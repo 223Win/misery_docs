@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>UNC Sidebar</title>
+		<link rel="stylesheet" href="sUNC.css" />
+	</head>
+	<body>
+		<div id="sunc-summary">
+			<div id="sunc-verification" class="sunc-verification verified">
+				<i class="fas fa-check-circle verification-icon verified"></i>
+				<div class="verification-text">
+					<p id="sunc-verification-title">Verified test result</p>
+					<p id="sunc-verification-description">
+						This result has been verified.
+					</p>
+				</div>
+			</div>
+			<div class="circle-container">
+				<svg width="120" height="120" viewBox="0 0 120 120">
+					<circle cx="60" cy="60" r="50" class="circle-bg"></circle>
+					<circle
+						cx="60"
+						cy="60"
+						r="50"
+						class="circle"
+						stroke-dasharray="314"
+						stroke-dashoffset="314"
+						style="stroke-dashoffset: 0"
+					></circle>
+				</svg>
+				<p id="sunc-percentage">100%</p>
+			</div>
+			<div class="sunc-tests">
+				<span id="sunc-tests-passed">90</span>
+				<span id="sunc-tests-total">/ 90</span>
+			</div>
+			<p id="sunc-tests-failed" style="color: var(--success-colour)">
+				No tests failed!
+			</p>
+			<div class="sunc-metabox">
+				<p class="sunc-meta">
+					<span class="sunc-meta-label"><i class="fas fa-hourglass-half"></i> Time Taken(seconds)</span>
+					<span class="sunc-meta-value" id="sunc-time">19.71</span>
+				</p>
+				<p class="sunc-meta">
+					<span class="sunc-meta-label"><i class="fas fa-cog"></i> sUNC Version</span>
+					<span class="sunc-meta-value" id="sunc-version">2.0.6</span>
+				</p>
+				<p class="sunc-meta">
+					<span class="sunc-meta-label"><i class="fas fa-desktop"></i> Executor</span>
+					<span class="sunc-meta-value" id="sunc-executor"></span>
+				</p>
+			</div>
+		</div>
+	</body>
+</html>

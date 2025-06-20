@@ -1,0 +1,369 @@
+
+            :root {
+                --bg-colour: #12121c;
+                --text-colour: #e0e0e0;
+                --container-bg: #1b1b2a;
+                --border-colour: #12121c;
+                --sunc-colour: #b7a0f6;
+                --success-colour: #44c638;
+                --failure-colour: #e64343;
+                --warning-colour: #ea8725;
+                --button-hover: #383857;
+                --font-family: 'Nunito Sans',sans-serif;
+                --mono-font: 'Fira Mono',monospace
+            }
+
+            body {
+                font-family: var(--font-family);
+                background-color: var(--bg-colour);
+                color: var(--text-colour);
+                margin: 0
+            }
+
+            body::-webkit-scrollbar {
+                width: 8px
+            }
+
+            body::-webkit-scrollbar-track {
+                background: #12121c
+            }
+
+            body::-webkit-scrollbar-thumb {
+                background: #443162;
+                border-radius: 4px
+            }
+
+            body::-webkit-scrollbar-thumb:hover {
+                background: #31293e
+            }
+
+            .container {
+                width: 80%;
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 25px;
+                text-align: left;
+                display: flex;
+                gap: 20px
+            }
+
+            .button {
+                background: var(--container-bg);
+                color: var(--text-colour);
+                border: none;
+                padding: 8px 15px;
+                cursor: pointer;
+                border-radius: 20px;
+                font-size: 1em;
+                transition: background .3s
+            }
+
+            .button:hover {
+                background: var(--button-hover)
+            }
+
+            #auth-popup {
+                box-shadow: 0 0 10px var(--container-bg)
+            }
+
+            #sunc-results {
+                flex: 3;
+                display: grid;
+                grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+                gap: 8px;
+                margin-top: 15px
+            }
+
+            .sidebar {
+                flex: 1;
+                min-width: 250px;
+                max-width: 300px
+            }
+
+            .sidebar-links {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 20px
+            }
+
+            .sidebar-links a {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                padding: 10px;
+                background: var(--container-bg);
+                color: var(--text-colour);
+                text-decoration: none;
+                border-radius: 8px;
+                font-size: 1em;
+                transition: background .3s;
+                opacity: 0;
+                transform: scale(.9);
+                animation: fadeInScale .5s ease-in-out forwards
+            }
+
+            .sidebar-links a:hover {
+                background: var(--button-hover)
+            }
+
+            .sidebar-links i {
+                font-size: 1.2em;
+                color: var(--text-colour)
+            }
+
+            .result-item {
+                background: var(--container-bg);
+                padding: 8px;
+                border-radius: 5px;
+                font-family: var(--mono-font);
+                text-align: left;
+                display: flex;
+                align-items: center;
+                opacity: 0;
+                transform: translateY(10px);
+                animation: fadeInUp .4s ease-in-out forwards
+            }
+
+            .result-item.success {
+                color: var(--sunc-colour)
+            }
+
+            .result-item.failure {
+                color: var(--failure-colour)
+            }
+
+            .result-indicator {
+                margin-right: 8px;
+                font-size: 1.2em
+            }
+
+            .success .result-indicator {
+                color: var(--success-colour)
+            }
+
+            .failure .result-indicator {
+                color: var(--failure-colour)
+            }
+
+            #sunc-summary {
+                margin-top: 15px;
+                background: var(--container-bg);
+                padding: 15px;
+                border-radius: 8px;
+                text-align: center;
+                opacity: 0;
+                transform: scale(.9);
+                animation: fadeInScale .5s ease-in-out forwards
+            }
+
+            #sunc-percentage {
+                font-size: 3em;
+                font-weight: 700;
+                color: var(--text-colour);
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                white-space: nowrap;
+                text-align: center;
+                pointer-events: none;
+                margin: 0
+            }
+
+            .sunc-tests {
+                display: flex;
+                justify-content: center;
+                align-items: baseline;
+                font-size: 1.6em
+            }
+
+            #sunc-tests-passed {
+                font-size: 2em;
+                font-weight: 700;
+                color: var(--sunc-colour)
+            }
+
+            #sunc-tests-total {
+                font-size: 1.4em;
+                color: #bbb;
+                margin-left: 6px
+            }
+
+            #sunc-tests-failed {
+                margin-top: 5px;
+                font-size: 1.1em;
+                font-weight: 700
+            }
+
+            .sunc-meta {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                font-size: 1em;
+                margin: 5px 0
+            }
+
+            .sunc-meta-label {
+                font-size: .9em;
+                color: #aaa;
+                display: flex;
+                align-items: center;
+                gap: 6px
+            }
+
+            .sunc-meta-label i {
+                font-size: 1.1em;
+                color: #888
+            }
+
+            .sunc-meta-value {
+                font-weight: 700;
+                color: var(--text-colour)
+            }
+
+            .sunc-verification {
+                display: flex;
+                align-items: center;
+                background: var(--container-bg);
+                padding: 10px;
+                border-radius: 8px;
+                margin-bottom: 15px;
+                text-align: left
+            }
+
+            .verification-icon {
+                font-size: 2em;
+                margin-right: 10px
+            }
+
+            .verified {
+                color: var(--success-colour)
+            }
+
+            .unverified {
+                color: var(--warning-colour)
+            }
+
+            .spoofed {
+                color: var(--failure-colour)
+            }
+
+            .verification-text {
+                display: flex;
+                flex-direction: column
+            }
+
+            #sunc-verification-title {
+                font-size: 1.2em;
+                font-weight: 700;
+                margin: 0
+            }
+
+            #sunc-verification-description {
+                font-size: .9em;
+                color: #aaa;
+                margin: 0
+            }
+
+            .circle-container {
+                position: relative;
+                width: 200px;
+                height: 200px;
+                margin: auto
+            }
+
+            .circle {
+                stroke: var(--sunc-colour);
+                stroke-width: 10;
+                fill: none;
+                stroke-linecap: round;
+                transition: stroke-dashoffset 1s ease-in-out
+            }
+
+            .circle-bg {
+                stroke: var(--border-colour);
+                stroke-width: 10;
+                fill: none
+            }
+
+            svg {
+                display: block;
+                width: 100%;
+                height: 100%;
+                transform: rotate(-90deg)
+            }
+
+            #scrap-info {
+                background: var(--container-bg);
+                padding: 12px;
+                border-radius: 8px;
+                margin-top: 10px;
+                text-align: center;
+                font-size: .95em;
+                color: var(--text-colour);
+                opacity: 0;
+                transform: scale(.9);
+                animation: fadeInScale .5s ease-in-out forwards
+            }
+
+            #scrap-info p {
+                margin: 5px 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                font-size: .9em;
+                color: #bbb
+            }
+
+            #scrap-info i {
+                font-size: 1.1em;
+                color: #888
+            }
+
+            @keyframes fadeInUp {
+                from {
+                    opacity: 0;
+                    transform: translateY(10px)
+                }
+
+                to {
+                    opacity: 1;
+                    transform: translateY(0)
+                }
+            }
+
+            @keyframes fadeInScale {
+                from {
+                    opacity: 0;
+                    transform: scale(.9)
+                }
+
+                to {
+                    opacity: 1;
+                    transform: scale(1)
+                }
+            }
+
+            @media (max-width: 768px) {
+                .container {
+                    flex-direction:column-reverse;
+                    width: 100%;
+                    padding: 10px
+                }
+
+                .sidebar {
+                    margin-left: 0;
+                    margin-bottom: 20px;
+                    max-width: none
+                }
+
+                #sunc-results {
+                    grid-template-columns: repeat(auto-fill,minmax(100%,1fr))
+                }
+
+                #sunc-summary {
+                    order: -1
+                }
+            }
