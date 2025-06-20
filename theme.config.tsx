@@ -1,17 +1,35 @@
 import React from 'react'
-import { DocsThemeConfig } from 'nextra-theme-docs'
-
-const config: DocsThemeConfig = {
-  logo: <span>Misery Documentation</span>,
-  project: {
-    link: 'https://discord.gg/7bpKDFrj4D',
-  },
-  chat: {
-    link: 'https://discord.gg/7bpKDFrj4D',
-  },
+import { useThemeConfig } from 'nextra-theme-docs'
+type ThemeConfig = ReturnType<typeof useThemeConfig>
+const config: ThemeConfig = {
   docsRepositoryBase: 'https://github.com/223Win/misery_docs/tree/main',
-  footer: {
-    text: 'Misery Documentation',
+  search: true,
+  darkMode: true,
+  editLink: 'Last updated',
+  feedback: {
+    content: null,
+    labels: '',
+  },
+  i18n: [],
+  lastUpdated: <span>Last updated</span>,
+  themeSwitch: {
+    dark: "Dark",
+    light: "Light",
+    system: "System",
+  },
+  navigation: {
+    prev: true,
+    next: true,
+  },
+  sidebar: {
+    defaultMenuCollapseLevel: 1,
+    toggleButton: true,
+    defaultOpen: false,
+  },
+  toc: {
+    title: 'On this page',
+    backToTop: false,
+    float: true,
   },
 }
 
